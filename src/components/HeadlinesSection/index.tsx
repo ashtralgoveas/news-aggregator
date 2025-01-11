@@ -17,8 +17,3 @@ export const Container = styled.div`
   margin-right: auto;
   margin-left: auto;
 `;
-
-export const card = {
-  marginTop: '10px',
-  marginBottom: '50px',
-};

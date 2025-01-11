@@ -13,7 +13,7 @@ import { Loading } from '../../components/Loading/Loading';
 export const PersonalizedPage = () => {
   const [show, setShow] = useState(false);
 
-  const { articles, status } = useSelector((state) => state.articles);
+  const { articles } = useSelector((state) => state.articles);
   const [savedSources, setSavedSources] = useState([]);
   const [savedAuthors, setSavedAuthors] = useState([]);
   const [savedCategories, setSavedCategories] = useState([]);

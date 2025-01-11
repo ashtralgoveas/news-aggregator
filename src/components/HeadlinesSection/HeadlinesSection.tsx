@@ -70,7 +70,7 @@ export const News = ({
         source: selected.key,
       })
     );
-  }, [debouncedSearchTerm, setQuery, dispatch]);
+  }, [debouncedSearchTerm, dispatch, selected.key]);
 
   console.log('first');
 

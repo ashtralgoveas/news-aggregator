@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Nav, Navbar } from 'react-bootstrap';
 import '../NavBar/NavBar.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -45,7 +45,6 @@ export const NavBar = () => {
       })
     );
     dispatch(setQuery(''));
-    // eslint-disable-next-line
   }, [dispatch, selected, selectedCategory]);
 
   const handleClearFilter = (e) => {
