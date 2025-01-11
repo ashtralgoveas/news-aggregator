@@ -1,6 +1,6 @@
-import React from "react";
-import { Form } from "react-bootstrap";
-import { capitaLize } from "../../config/config";
+import React from 'react';
+import { Form } from 'react-bootstrap';
+import { capitaLize } from '../../config/config';
 
 interface DropdownI {
   dropdownLabel: string;
@@ -21,13 +21,13 @@ const Dropdown = ({
 }: DropdownI) => {
   return (
     <Form.Group controlId="dropdown">
-      <Form.Label style={{ fontWeight: "bold", fontSize: "14px" }}>
+      <Form.Label style={{ fontWeight: 'bold', fontSize: '14px' }}>
         {dropdownLabel}
       </Form.Label>
       <Form.Select
         aria-label={dropdownLabel}
         onChange={handleChange}
-        value={isObject ? selectedValue?.key || "" : selectedValue}
+        value={isObject ? selectedValue?.key || '' : selectedValue}
       >
         <option value="">{dropdownPlaceholder}</option>
         {options.map((item, i) => (

@@ -1,7 +1,7 @@
-import React from "react";
-import { Form } from "react-bootstrap";
-import "../MultiSelect/MultiSelect.css";
-import CustomizedBadge from "../CustomizedBadge/CustomizedBadge";
+import React from 'react';
+import { Form } from 'react-bootstrap';
+import '../MultiSelect/MultiSelect.css';
+import CustomizedBadge from '../CustomizedBadge/CustomizedBadge';
 
 interface MultiSelectI {
   dropdownLabel: string;
@@ -36,7 +36,7 @@ const MultiSelect = ({
 
   return (
     <Form.Group controlId="multiSelectDropdown">
-      <Form.Label style={{ fontWeight: "bold", fontSize: "14px" }}>
+      <Form.Label style={{ fontWeight: 'bold', fontSize: '14px' }}>
         {dropdownLabel}
       </Form.Label>
       <Form.Select
@@ -53,7 +53,7 @@ const MultiSelect = ({
         ))}
       </Form.Select>
 
-      <div style={{ marginTop: "10px" }}>
+      <div style={{ marginTop: '10px' }}>
         {selectedValues.map((value, i) => (
           <CustomizedBadge
             badgeName={value}

@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes } from 'styled-components';
 const spinAnimation = keyframes`
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
@@ -31,6 +31,7 @@ export const LoadingCircle = styled.div`
   border: 6px solid rgba(60, 159, 225, 0.3);
   border-top-color: rgb(60, 159, 225);
   border-radius: 50%;
-  animation: ${spinAnimation} 1s linear infinite,
+  animation:
+    ${spinAnimation} 1s linear infinite,
     ${glowAnimation} 1.5s ease-in-out infinite;
 `;

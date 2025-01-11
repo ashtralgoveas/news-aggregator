@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { News } from "../../components/HeadlinesSection/HeadlinesSection";
-import PopModal from "../../components/PopModal/PopModal";
-import { useDispatch, useSelector } from "react-redux";
-import DatePicker from "react-datepicker";
+import React, { useState } from 'react';
+import { News } from '../../components/HeadlinesSection/HeadlinesSection';
+import PopModal from '../../components/PopModal/PopModal';
+import { useDispatch, useSelector } from 'react-redux';
+import DatePicker from 'react-datepicker';
 import {
   fetchArticles,
   setCategory,
@@ -10,12 +10,12 @@ import {
   setQuery,
   setSource,
   setStartArticleDate,
-} from "../../store/slices/articlesSlice";
-import moment from "moment";
-import "../HomePage/HomePage.css";
-import Dropdown from "../../components/Dropdown/Dropdown";
-import { categories, sources } from "../../config/config";
-import { Col, Container, Form, Row } from "react-bootstrap";
+} from '../../store/slices/articlesSlice';
+import moment from 'moment';
+import '../HomePage/HomePage.css';
+import Dropdown from '../../components/Dropdown/Dropdown';
+import { categories, sources } from '../../config/config';
+import { Col, Container, Form, Row } from 'react-bootstrap';
 
 export const HomePage = () => {
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ export const HomePage = () => {
   });
   const [openDateFilterModal, setOpenDateFilterModal] = useState(false);
   const [openMultiFilterModal, setOpenMultiFilterModal] = useState(false);
-  const [searchInputValue, setSearchInputValue] = useState("");
+  const [searchInputValue, setSearchInputValue] = useState('');
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
   const [selectedSource, setSelectedSource] = useState(
@@ -40,17 +40,17 @@ export const HomePage = () => {
   const handleOpenDateFilterModal = () => {
     setOpenDateFilterModal(true);
     setButtonClick({ ...filters, search: false });
-    setSearchInputValue("");
+    setSearchInputValue('');
   };
 
   const handleOpenMultiFilterModal = () => {
     setOpenMultiFilterModal(true);
     setButtonClick({ ...filters, search: false });
-    setSearchInputValue("");
+    setSearchInputValue('');
   };
 
   const handleStartDateChange = (date) => {
-    const formattedDate = moment(date).format("YYYY-MM-DD");
+    const formattedDate = moment(date).format('YYYY-MM-DD');
     setStartDate(date);
     dispatch(setStartArticleDate(formattedDate));
     if (!date) {
@@ -59,7 +59,7 @@ export const HomePage = () => {
   };
 
   const handleEndDateChange = (date) => {
-    const formattedDate = moment(date).format("YYYY-MM-DD");
+    const formattedDate = moment(date).format('YYYY-MM-DD');
     setEndDate(date);
     dispatch(setEndArticleDate(formattedDate));
   };
@@ -156,12 +156,12 @@ export const HomePage = () => {
               <Form.Group
                 controlId="startDatePicker"
                 className="date-picker"
-                style={{ paddingBottom: "15px", display: "grid" }}
+                style={{ paddingBottom: '15px', display: 'grid' }}
               >
                 <Form.Label
                   style={{
-                    fontWeight: "bold",
-                    fontSize: "14px",
+                    fontWeight: 'bold',
+                    fontSize: '14px',
                   }}
                 >
                   Start Date
@@ -184,12 +184,12 @@ export const HomePage = () => {
               <Form.Group
                 controlId="endDatePicker"
                 className="date-picker"
-                style={{ paddingBottom: "10px", display: "grid" }}
+                style={{ paddingBottom: '10px', display: 'grid' }}
               >
                 <Form.Label
                   style={{
-                    fontWeight: "bold",
-                    fontSize: "14px",
+                    fontWeight: 'bold',
+                    fontSize: '14px',
                   }}
                 >
                   End Date

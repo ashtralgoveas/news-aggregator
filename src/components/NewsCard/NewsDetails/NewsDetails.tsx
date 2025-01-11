@@ -1,6 +1,6 @@
-import React from "react";
-import { newsChannel, lastUpdate } from "../../../config/config";
-import "../NewsDetails/NewsDetails.css";
+import React from 'react';
+import { newsChannel, lastUpdate } from '../../../config/config';
+import '../NewsDetails/NewsDetails.css';
 
 interface NewsDetailsI {
   channel: string;

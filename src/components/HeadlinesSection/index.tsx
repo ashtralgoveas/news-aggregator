@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Header = styled.h1`
-  font-family: "Times New Roman";
+  font-family: 'Times New Roman';
   text-align: left;
   color: #000;
   font-weight: 900;
@@ -19,6 +19,6 @@ export const Container = styled.div`
 `;
 
 export const card = {
-  marginTop: "10px",
-  marginBottom: "50px",
+  marginTop: '10px',
+  marginBottom: '50px',
 };

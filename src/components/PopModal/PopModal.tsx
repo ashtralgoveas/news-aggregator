@@ -1,7 +1,7 @@
-import { Modal } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import "../PopModal/PopModal.css";
-import { ReactNode } from "react";
+import { Modal } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import '../PopModal/PopModal.css';
+import { ReactNode } from 'react';
 
 interface PopModalI {
   showModal: boolean;
@@ -36,7 +36,7 @@ const PopModal = ({
       >
         <Modal.Header closeButton className="custom-modal-header">
           <Modal.Title
-            style={{ fontSize: "18px", fontWeight: 600 }}
+            style={{ fontSize: '18px', fontWeight: 600 }}
             className="custom-modal-header"
           >
             {modalTitle}

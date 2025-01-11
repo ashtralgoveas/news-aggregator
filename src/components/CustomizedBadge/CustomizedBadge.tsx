@@ -1,6 +1,6 @@
-import React from "react";
-import { Badge, Button } from "react-bootstrap";
-import "../CustomizedBadge/CustomizedBadge.css";
+import React from 'react';
+import { Badge, Button } from 'react-bootstrap';
+import '../CustomizedBadge/CustomizedBadge.css';
 
 interface CustomizedBadgeI {
   badgeName: string;
@@ -20,7 +20,7 @@ const CustomizedBadge = ({
         <Button
           size="sm"
           variant="light"
-          style={{ marginLeft: "5px", padding: "0 5px", fontSize: "10px" }}
+          style={{ marginLeft: '5px', padding: '0 5px', fontSize: '10px' }}
           onClick={() => handleRemove(badgeName)}
         >
           &times;

@@ -1,16 +1,16 @@
-import { useDispatch, useSelector } from "react-redux";
-import { Container, Header, card } from "./index";
-import { Button, ButtonGroup, Col, Row } from "react-bootstrap";
-import { header, capitaLize, sources } from "../../config/config";
-import "../HeadlinesSection/HeadlinesSection.css";
-import { NoDataFound } from "../NoDataFound/NoDataFound";
-import { Loading } from "../Loading/Loading";
-import { NewsCard } from "../NewsCard/NewsCard";
-import { FaCalendarAlt, FaFilter, FaSearch } from "react-icons/fa";
-import { useEffect, useState } from "react";
-import { fetchArticles, setQuery } from "../../store/slices/articlesSlice";
-import { useDebounce } from "../../hooks/useDebounce";
-import SearchInput from "../SearchInput/SearchInput";
+import { useDispatch, useSelector } from 'react-redux';
+import { Container, Header, card } from './index';
+import { Button, ButtonGroup, Col, Row } from 'react-bootstrap';
+import { header, capitaLize, sources } from '../../config/config';
+import '../HeadlinesSection/HeadlinesSection.css';
+import { NoDataFound } from '../NoDataFound/NoDataFound';
+import { Loading } from '../Loading/Loading';
+import { NewsCard } from '../NewsCard/NewsCard';
+import { FaCalendarAlt, FaFilter, FaSearch } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
+import { fetchArticles, setQuery } from '../../store/slices/articlesSlice';
+import { useDebounce } from '../../hooks/useDebounce';
+import SearchInput from '../SearchInput/SearchInput';
 
 interface NewsHeadlinesI {
   personalized?: string[];
@@ -36,7 +36,7 @@ export const News = ({
 
   const [selected] = useState(sources[0]);
 
-  const personalizedClass = personalized ? "personalized" : "";
+  const personalizedClass = personalized ? 'personalized' : '';
   const debouncedSearchTerm = useDebounce(searchInputValue, 800);
 
   let { articles } = useSelector((state) => state.articles);
@@ -44,12 +44,12 @@ export const News = ({
   articles = personalized ? personalized : articles;
 
   const heading = personalized
-    ? "personalized"
+    ? 'personalized'
     : filters.query
-    ? filters.query
-    : filters.category;
+      ? filters.query
+      : filters.category;
 
-  const isSearchButtonDisabled = searchInputValue?.trim() === "";
+  const isSearchButtonDisabled = searchInputValue?.trim() === '';
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -71,6 +71,8 @@ export const News = ({
       })
     );
   }, [debouncedSearchTerm, setQuery, dispatch]);
+
+  console.log('first');
 
   return (
     <>
@@ -116,7 +118,7 @@ export const News = ({
           </div>
         </div>
       )}
-      {status === "loading" ? (
+      {status === 'loading' ? (
         <Loading />
       ) : personalized && articles?.length < 1 ? (
         <>

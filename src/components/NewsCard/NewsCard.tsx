@@ -1,7 +1,7 @@
-import React from "react";
-import { Card } from "react-bootstrap";
-import "./NewsCard.css";
-import { Details } from "./NewsDetails/NewsDetails";
+import React from 'react';
+import { Card } from 'react-bootstrap';
+import './NewsCard.css';
+import { Details } from './NewsDetails/NewsDetails';
 
 interface NewsCardI {
   imageUrl: string;
@@ -33,7 +33,7 @@ export const NewsCard = ({
         <Card.Img className="card-img" variant="top" src={imageUrl} alt={alt} />
         <Card.Body className="card-body">
           <Card.Title className="card-title">
-            {" "}
+            {' '}
             <a
               href={urlNews}
               target="_blank"

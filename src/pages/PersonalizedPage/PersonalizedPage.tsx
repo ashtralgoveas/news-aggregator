@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import "./PersonalizedPage.css";
-import { useSelector } from "react-redux";
-import { News } from "../../components/HeadlinesSection/HeadlinesSection";
-import MultiSelect from "../../components/MultiSelect/MultiSelect";
-import { FaEdit, FaPlus } from "react-icons/fa";
-import { Header } from "../../components/HeadlinesSection";
-import Sidebar from "../../components/Sidebar/Sidebar";
-import { Loading } from "../../components/Loading/Loading";
+import { useEffect, useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import './PersonalizedPage.css';
+import { useSelector } from 'react-redux';
+import { News } from '../../components/HeadlinesSection/HeadlinesSection';
+import MultiSelect from '../../components/MultiSelect/MultiSelect';
+import { FaEdit, FaPlus } from 'react-icons/fa';
+import { Header } from '../../components/HeadlinesSection';
+import Sidebar from '../../components/Sidebar/Sidebar';
+import { Loading } from '../../components/Loading/Loading';
 
 export const PersonalizedPage = () => {
   const [show, setShow] = useState(false);
@@ -84,11 +84,11 @@ export const PersonalizedPage = () => {
   useEffect(() => {
     // Retrieve preferences from localStorage
     const savedSources =
-      JSON.parse(localStorage.getItem("preferredSources")) || [];
+      JSON.parse(localStorage.getItem('preferredSources')) || [];
     const savedAuthors =
-      JSON.parse(localStorage.getItem("preferredAuthors")) || [];
+      JSON.parse(localStorage.getItem('preferredAuthors')) || [];
     const savedCategories =
-      JSON.parse(localStorage.getItem("preferredCategories")) || [];
+      JSON.parse(localStorage.getItem('preferredCategories')) || [];
 
     setSavedSources(savedSources);
     setSavedAuthors(savedAuthors);
@@ -112,10 +112,10 @@ export const PersonalizedPage = () => {
   }, [articles, uniqueSources.length]);
 
   useEffect(() => {
-    localStorage.setItem("preferredSources", JSON.stringify(savedSources));
-    localStorage.setItem("preferredAuthors", JSON.stringify(savedAuthors));
+    localStorage.setItem('preferredSources', JSON.stringify(savedSources));
+    localStorage.setItem('preferredAuthors', JSON.stringify(savedAuthors));
     localStorage.setItem(
-      "preferredCategories",
+      'preferredCategories',
       JSON.stringify(savedCategories)
     );
   }, [savedSources, savedAuthors, savedCategories]);

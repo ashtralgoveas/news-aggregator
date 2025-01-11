@@ -1,11 +1,11 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import {
   fetchNewsAPIArticles,
   fetchGuardianArticles,
   fetchNYTimesArticles,
-} from "../../config/api";
+} from '../../config/api';
 export const fetchArticles = createAsyncThunk(
-  "articles/fetchArticles",
+  'articles/fetchArticles',
   async (params, { getState }) => {
     const { query, source } = getState().articles.filters;
 
@@ -17,19 +17,19 @@ export const fetchArticles = createAsyncThunk(
     }
 
     // Fetch from NewsAPI
-    if (source.key === "news-api" || source.key === "all") {
+    if (source.key === 'news-api' || source.key === 'all') {
       const newsAPIArticles = await fetchNewsAPIArticles(query, params);
       articles = [...articles, ...newsAPIArticles];
     }
 
     // Fetch from The Guardian API
-    if (source.key === "guardian-api" || source.key === "all") {
+    if (source.key === 'guardian-api' || source.key === 'all') {
       const guardianArticles = await fetchGuardianArticles(query, params);
       articles = [...articles, ...guardianArticles];
     }
 
     // Fetch from NYT API
-    if (source.key === "ny-times" || source.key === "all") {
+    if (source.key === 'ny-times' || source.key === 'all') {
       const nyTimesArticles = await fetchNYTimesArticles(query, params);
       articles = [...articles, ...nyTimesArticles];
     }
@@ -37,18 +37,18 @@ export const fetchArticles = createAsyncThunk(
   }
 );
 const articlesSlice = createSlice({
-  name: "articles",
+  name: 'articles',
   initialState: {
     articles: [],
-    status: "idle",
+    status: 'idle',
     error: null,
     filters: {
-      query: "",
-      category: "",
-      startArticleDate: "",
-      endArticleDate: "",
-      source: "",
-      author: "",
+      query: '',
+      category: '',
+      startArticleDate: '',
+      endArticleDate: '',
+      source: '',
+      author: '',
       preferredSources: [],
       preferredCategories: [],
       preferredAuthors: [],
@@ -86,14 +86,14 @@ const articlesSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchArticles.pending, (state) => {
-        state.status = "loading";
+        state.status = 'loading';
       })
       .addCase(fetchArticles.fulfilled, (state, action) => {
-        state.status = "succeeded";
+        state.status = 'succeeded';
         state.articles = action.payload;
       })
       .addCase(fetchArticles.rejected, (state, action) => {
-        state.status = "failed";
+        state.status = 'failed';
         state.error = action.error.message;
       });
   },

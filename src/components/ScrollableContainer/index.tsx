@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { Container } from "react-bootstrap";
+import React from 'react';
+import styled from 'styled-components';
+import { Container } from 'react-bootstrap';
 
 export const ScrollableContainer = styled(Container)`
   height: 100vh; /* Full viewport height */

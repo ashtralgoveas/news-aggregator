@@ -1,5 +1,5 @@
-import React from "react";
-import { SpinnerContainer, LoadingCircle } from "./index";
+import React from 'react';
+import { SpinnerContainer, LoadingCircle } from './index';
 
 export const Loading = () => {
   return (

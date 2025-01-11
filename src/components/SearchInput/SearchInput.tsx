@@ -1,6 +1,6 @@
-import React from "react";
-import { InputGroup, Form, Button } from "react-bootstrap";
-import { FaSearch } from "react-icons/fa";
+import React from 'react';
+import { InputGroup, Form, Button } from 'react-bootstrap';
+import { FaSearch } from 'react-icons/fa';
 
 interface SearchInputI {
   inputValue: string;

@@ -1,7 +1,7 @@
 // src/services/api.js
-import axios from "axios";
-import newsImage from "../images/newsImage.jpg";
-import moment from "moment";
+import axios from 'axios';
+import newsImage from '../images/newsImage.jpg';
+import moment from 'moment';
 const NEWS_API_KEY = import.meta.env.VITE_APP_NEWSAPI_KEY;
 const GUARDIAN_API_KEY = import.meta.env.VITE_APP_GUARDIAN_KEY;
 const NYT_API_KEY = import.meta.env.VITE_APP_NYT_KEY;
@@ -25,7 +25,7 @@ const makeApiRequest = async (
     const response = await axios.get(url, { params });
     return response.data;
   } catch (error) {
-    console.error("API request failed:", error);
+    console.error('API request failed:', error);
     return null;
   }
 };
@@ -46,10 +46,10 @@ const normalizeArticles = (articles) => {
     author:
       article?.author ||
       article?.fields?.byline ||
-      "Unknown Author" ||
+      'Unknown Author' ||
       article?.byline?.original ||
-      "No Author",
-    category: article?.category || article?.sectionName || "General",
+      'No Author',
+    category: article?.category || article?.sectionName || 'General',
     imgSrc: article?.urlToImage || article?.image || newsImage,
   }));
 };
@@ -60,26 +60,26 @@ export const fetchNewsAPIArticles = async (search, filters) => {
   const newsApiSearchByQuery = `https://newsapi.org/v2/everything?q=${search}`;
   const newsApiSearchByCategory = `https://newsapi.org/v2/top-headlines?country=us&category=${
     filters.category
-  }&source=${filters.source || "all"}`;
+  }&source=${filters.source || 'all'}`;
   const newsApiSearchByQueryCategory = `https://newsapi.org/v2/top-headlines?country=us&q=${search}&category=${filters.category}`;
 
   const newsSearchApi =
     search.length > 0 && filters.category?.length > 0
       ? newsApiSearchByQueryCategory
       : filters.category?.length > 0
-      ? newsApiSearchByCategory
-      : search.length > 0
-      ? newsApiSearchByQuery
-      : newsApiUrl;
+        ? newsApiSearchByCategory
+        : search.length > 0
+          ? newsApiSearchByQuery
+          : newsApiUrl;
 
   const params = {
     apiKey: NEWS_API_KEY,
     from:
       filters.startArticleDate &&
-      moment(filters.startArticleDate).format("YYYY-MM-DD"),
+      moment(filters.startArticleDate).format('YYYY-MM-DD'),
     to:
       filters.endArticleDate &&
-      moment(filters.endArticleDate).format("YYYY-MM-DD"),
+      moment(filters.endArticleDate).format('YYYY-MM-DD'),
   };
 
   const initialParams = {
@@ -88,10 +88,10 @@ export const fetchNewsAPIArticles = async (search, filters) => {
 
   if (newsSearchApi === newsApiSearchByQuery) {
     const data = await makeApiRequest(newsSearchApi, params);
-    return data ? normalizeArticles(data.articles, "NewsAPI") : [];
+    return data ? normalizeArticles(data.articles, 'NewsAPI') : [];
   } else {
     const data = await makeApiRequest(newsSearchApi, initialParams);
-    return data ? normalizeArticles(data.articles, "NewsAPI") : [];
+    return data ? normalizeArticles(data.articles, 'NewsAPI') : [];
   }
 };
 
@@ -103,19 +103,19 @@ export const fetchGuardianArticles = async (search, filters) => {
     q: search,
     section: filters.category,
     source: filters.source,
-    "from-date":
+    'from-date':
       filters.startArticleDate &&
-      moment(filters.startArticleDate).format("YYYY-MM-DD"),
-    "to-date":
+      moment(filters.startArticleDate).format('YYYY-MM-DD'),
+    'to-date':
       filters.endArticleDate &&
-      moment(filters.endArticleDate).format("YYYY-MM-DD"),
-    "page-size": 20,
-    "api-key": GUARDIAN_API_KEY,
-    "show-fields": "all",
+      moment(filters.endArticleDate).format('YYYY-MM-DD'),
+    'page-size': 20,
+    'api-key': GUARDIAN_API_KEY,
+    'show-fields': 'all',
   };
 
   const data = await makeApiRequest(guardianNewsApi, params);
-  return data ? normalizeArticles(data.response.results, "The Guardian") : [];
+  return data ? normalizeArticles(data.response.results, 'The Guardian') : [];
 };
 
 // Fetch NewYork News articles
@@ -127,17 +127,17 @@ export const fetchNYTimesArticles = async (search, filters) => {
     fq: filters.category,
     begin_date:
       filters.startArticleDate &&
-      moment(filters.startArticleDate).format("YYYY-MM-DD"),
+      moment(filters.startArticleDate).format('YYYY-MM-DD'),
     end_date:
       filters.endArticleDate &&
-      moment(filters.endArticleDate).format("YYYY-MM-DD"),
-    "api-key": NYT_API_KEY,
+      moment(filters.endArticleDate).format('YYYY-MM-DD'),
+    'api-key': NYT_API_KEY,
     category: filters.category,
     source: filters.source,
   };
 
   const data = await makeApiRequest(newYorkTimesApi, params);
   return data
-    ? normalizeArticles(data.response.docs, "The New York Times")
+    ? normalizeArticles(data.response.docs, 'The New York Times')
     : [];
 };

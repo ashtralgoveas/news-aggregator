@@ -1,20 +1,20 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from 'react';
 
-import { Nav, Navbar, NavDropdown } from "react-bootstrap";
-import "../NavBar/NavBar.css";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import '../NavBar/NavBar.css';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   setQuery,
   setSource,
   fetchArticles,
   setCategory,
-} from "../../store/slices/articlesSlice";
-import { sources, categories } from "../../config/config";
+} from '../../store/slices/articlesSlice';
+import { sources, categories } from '../../config/config';
 
-import "react-datepicker/dist/react-datepicker.css";
-import { FaTimes, FaBars } from "react-icons/fa";
-import { useClickOutside } from "../../hooks/useClickOutside";
+import 'react-datepicker/dist/react-datepicker.css';
+import { FaTimes, FaBars } from 'react-icons/fa';
+import { useClickOutside } from '../../hooks/useClickOutside';
 
 export const NavBar = () => {
   const dispatch = useDispatch();
@@ -44,7 +44,7 @@ export const NavBar = () => {
         category: selectedCategory,
       })
     );
-    dispatch(setQuery(""));
+    dispatch(setQuery(''));
     // eslint-disable-next-line
   }, [dispatch, selected, selectedCategory]);
 
@@ -59,7 +59,7 @@ export const NavBar = () => {
     );
     dispatch(setCategory(categories[0]));
     dispatch(setSource(sources[0]));
-    navigate("/");
+    navigate('/');
   };
 
   return (
