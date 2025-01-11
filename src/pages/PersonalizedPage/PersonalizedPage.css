@@ -1,0 +1,17 @@
+h5 {
+  font-weight: 600;
+}
+.offcanvas-footer {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.checkbox-container {
+  padding: 10px;
+}
+
+.add-edit-button {
+  background-color: rgb(60, 159, 225);
+}

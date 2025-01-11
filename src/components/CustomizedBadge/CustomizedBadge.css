@@ -1,0 +1,12 @@
+.bg-primary {
+  background-color: rgb(60, 159, 225) !important;
+}
+
+.badge-style {
+  margin-right: 5px;
+  margin-top: 10px;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  background-color: rgb(60, 159, 225) !important;
+}

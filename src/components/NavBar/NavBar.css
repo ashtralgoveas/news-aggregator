@@ -1,0 +1,95 @@
+.navbar {
+  background-color: rgb(60, 159, 225) !important;
+  padding: 25px 50px !important;
+  font-size: 18px !important;
+}
+
+.nav-brand {
+  font-size: 25px !important;
+  margin-left: 10px !important;
+  font-weight: 900 !important;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.nav {
+  margin-left: 5px !important;
+}
+
+.nav-item {
+  padding-left: 15px !important;
+  font-weight: 600 !important;
+}
+
+.navbar-dropdown {
+  transition: 0.3s ease !important;
+}
+
+.navbar-dropdown:hover {
+  transform: translateY(-3px) !important;
+  text-decoration: none !important;
+}
+
+.close-btn {
+  color: #ffffff80 !important;
+  cursor: pointer !important;
+  margin-inline-end: 6px !important;
+}
+
+.search-form {
+  display: flex !important;
+  align-items: center !important;
+  margin: 10px 0;
+}
+
+.form-input {
+  border-radius: 0 !important;
+  border-top-left-radius: 13px !important;
+  border-bottom-left-radius: 13px !important;
+  padding: 11px !important;
+  margin-left: 13px !important;
+  margin-right: -9px !important;
+  font-size: 18px !important;
+  background-color: #31383e !important;
+  color: #fff !important;
+  border: 0 !important;
+  outline: 0 !important;
+  margin-top: 0 !important;
+}
+
+.form-input:focus {
+  box-shadow: none !important;
+}
+
+.logo {
+  width: 45px !important;
+}
+
+.search-btn {
+  background-color: #005abb !important;
+  color: white !important;
+  font-weight: 700 !important;
+  border-radius: 0 !important;
+  border-top-right-radius: 13px !important;
+  border-bottom-right-radius: 13px !important;
+  padding: 10px 15px !important;
+  border-color: #323762b7 !important;
+  font-size: 18px !important;
+  margin-right: 10px !important;
+  margin-top: 0 !important;
+}
+.search-btn::placeholder {
+  color: #fff !important;
+  opacity: 1; /* Firefox */
+}
+.search-btn:hover {
+  background-color: rgb(9 71 137) !important;
+  transition: 0.5s ease !important;
+}
+
+.search-btn:disabled {
+  background-color: #005abb !important;
+}
+
+.nav-link.active {
+  color: #fff;
+}

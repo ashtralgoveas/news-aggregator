@@ -1,0 +1,12 @@
+.custom-dropdown .dropdown-menu {
+  max-height: 150px;
+  overflow-y: auto;
+  font-size: 14px;
+  padding: 0;
+  width: 100%;
+}
+
+.custom-dropdown .dropdown-item {
+  padding: 6px 12px;
+  font-size: 14px;
+}
