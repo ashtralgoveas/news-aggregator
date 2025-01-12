@@ -20,9 +20,9 @@ To get started with the project locally, follow these steps:
 
 2. Install Dependencies:
 
-```bash
+   ```bash
   npm install
-```
+   ```
 
 ## Docker Setup
 
@@ -59,3 +59,7 @@ This will start the application inside a Docker container and map port 3000 on y
 Once the container is running, you can access the application in your browser by going to:
 
 http://localhost:3000
+
+## Website Hosting
+
+[news-aggregator-omega-weld.vercel.app](https://news-aggregator-omega-weld.vercel.app/home)
