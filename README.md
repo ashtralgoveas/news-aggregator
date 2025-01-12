@@ -21,8 +21,7 @@ To get started with the project locally, follow these steps:
 2. Install Dependencies:
 
    ```bash
-  npm install
-   ```
+  npm install ```
 
 ## Docker Setup
 
