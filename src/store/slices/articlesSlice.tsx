@@ -4,12 +4,14 @@ import {
   fetchGuardianArticles,
   fetchNYTimesArticles,
 } from '../../config/api';
-export const fetchArticles = createAsyncThunk(
+import { Article, ArticlesState } from '../../types';
+
+export const fetchArticles: any = createAsyncThunk(
   'articles/fetchArticles',
-  async (params, { getState }) => {
+  async (params: any, { getState }: any) => {
     const { query, source } = getState().articles.filters;
 
-    let articles = [];
+    let articles: Article[] = [];
 
     if (params.startArticleDate === null && params.endArticleDate === null) {
       delete params.startArticleDate;
@@ -36,24 +38,26 @@ export const fetchArticles = createAsyncThunk(
     return articles;
   }
 );
+const initialState: ArticlesState = {
+  articles: [],
+  status: 'idle',
+  error: null,
+  filters: {
+    query: '',
+    category: '',
+    startArticleDate: '',
+    endArticleDate: '',
+    source: '',
+    author: '',
+    preferredSources: [],
+    preferredCategories: [],
+    preferredAuthors: [],
+  },
+};
+
 const articlesSlice = createSlice({
   name: 'articles',
-  initialState: {
-    articles: [],
-    status: 'idle',
-    error: null,
-    filters: {
-      query: '',
-      category: '',
-      startArticleDate: '',
-      endArticleDate: '',
-      source: '',
-      author: '',
-      preferredSources: [],
-      preferredCategories: [],
-      preferredAuthors: [],
-    },
-  },
+  initialState,
   reducers: {
     setQuery(state, action) {
       state.filters.query = action.payload;

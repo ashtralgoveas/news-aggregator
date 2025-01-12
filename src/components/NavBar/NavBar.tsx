@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Nav, Navbar } from 'react-bootstrap';
 import '../NavBar/NavBar.css';
@@ -15,6 +15,7 @@ import { sources, categories } from '../../config/config';
 import 'react-datepicker/dist/react-datepicker.css';
 import { FaTimes, FaBars } from 'react-icons/fa';
 import { useClickOutside } from '../../hooks/useClickOutside';
+import { ArticlesState } from '../../types';
 
 export const NavBar = () => {
   const dispatch = useDispatch();
@@ -27,7 +28,9 @@ export const NavBar = () => {
 
   const isPagePersonalized = /\/personalized/.test(currentPath);
 
-  const { filters } = useSelector((state) => state.articles);
+  const { filters }: ArticlesState = useSelector(
+    (state: any) => state.articles
+  );
 
   const { isCollapsed, setIsCollapsed, elementRef } = useClickOutside();
   const [selected, setSelectedSource] = useState(filters.source || sources[0]);

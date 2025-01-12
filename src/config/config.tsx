@@ -61,7 +61,7 @@ function createMockArticle(id) {
 }
 
 export function generateMockArticles(count) {
-  const articles = [];
+  const articles: any = [];
   for (let i = 1; i <= count; i++) {
     articles.push(createMockArticle(i));
   }

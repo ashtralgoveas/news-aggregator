@@ -1,11 +1,11 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { Offcanvas, Button } from 'react-bootstrap';
 import '../Sidebar/Sidebar.css';
 
 interface SidebarI {
   children: ReactNode;
   sidebarHeading: string;
-  openDrawer: () => void;
+  openDrawer: boolean;
   handleCloseSidebar: () => void;
   handleApply: () => void;
 }

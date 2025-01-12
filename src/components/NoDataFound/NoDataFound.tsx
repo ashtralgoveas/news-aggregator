@@ -1,4 +1,3 @@
-import React from 'react';
 import './NoDataFound.css';
 import { IoWarning } from 'react-icons/io5';
 

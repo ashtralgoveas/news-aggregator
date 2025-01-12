@@ -1,12 +1,11 @@
-import React from 'react';
 import { InputGroup, Form, Button } from 'react-bootstrap';
 import { FaSearch } from 'react-icons/fa';
 
 interface SearchInputI {
-  inputValue: string;
-  setInputValue: () => void;
+  inputValue: string | any;
+  setInputValue: any;
   isDisabled: boolean;
-  handleSubmit: () => void;
+  handleSubmit: any;
 }
 
 const SearchInput = ({

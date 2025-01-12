@@ -1,4 +1,3 @@
-import React from 'react';
 import { Card } from 'react-bootstrap';
 import './NewsCard.css';
 import { Details } from './NewsDetails/NewsDetails';

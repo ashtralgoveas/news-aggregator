@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { News } from '../../components/HeadlinesSection/HeadlinesSection';
 import PopModal from '../../components/PopModal/PopModal';
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,7 +19,7 @@ import { Col, Container, Form, Row } from 'react-bootstrap';
 
 export const HomePage = () => {
   const dispatch = useDispatch();
-  const { filters } = useSelector((state) => state.articles);
+  const { filters } = useSelector((state: any) => state.articles);
   const [buttonClick, setButtonClick] = useState({
     search: false,
     dateFilter: false,
@@ -54,6 +54,7 @@ export const HomePage = () => {
     setStartDate(date);
     dispatch(setStartArticleDate(formattedDate));
     if (!date) {
+      // @ts-expect-error: Assign end date null if start date is removed.
       setEndDate(null);
     }
   };
@@ -100,6 +101,10 @@ export const HomePage = () => {
         q: searchInputValue,
       })
     );
+    // @ts-expect-error: Assign start date null to reset value
+    setStartDate(null);
+    // @ts-expect-error: Assign end date null to reset value
+    setEndDate(null);
     setOpenDateFilterModal(false);
   };
 
@@ -139,8 +144,6 @@ export const HomePage = () => {
         handleOpenMultiFilterModal={handleOpenMultiFilterModal}
         searchInputValue={searchInputValue}
         setSearchInputValue={setSearchInputValue}
-        startDate={startDate}
-        endDate={endDate}
       />
       <PopModal
         showModal={openDateFilterModal}

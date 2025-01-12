@@ -1,13 +1,14 @@
-import React from 'react';
 import { Form } from 'react-bootstrap';
 import { capitaLize } from '../../config/config';
+import { Options } from '../../types';
+import { ChangeEventHandler } from 'react';
 
 interface DropdownI {
   dropdownLabel: string;
   dropdownPlaceholder: string;
-  options: string[];
-  handleChange: () => void;
-  selectedValue: string;
+  options: Options[] | string[];
+  handleChange: ChangeEventHandler<HTMLSelectElement>;
+  selectedValue: any;
   isObject?: boolean;
 }
 

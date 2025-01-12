@@ -1,4 +1,3 @@
-import React from 'react';
 import { Form } from 'react-bootstrap';
 import '../MultiSelect/MultiSelect.css';
 import CustomizedBadge from '../CustomizedBadge/CustomizedBadge';
@@ -6,9 +5,9 @@ import CustomizedBadge from '../CustomizedBadge/CustomizedBadge';
 interface MultiSelectI {
   dropdownLabel: string;
   dropdownPlaceholder: string;
-  options: string[];
+  options: any;
   selectedValues: string[];
-  onChange: () => void;
+  onChange: (data: any[]) => void;
 }
 
 const MultiSelect = ({

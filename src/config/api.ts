@@ -2,6 +2,7 @@
 import axios from 'axios';
 import newsImage from '../images/newsImage.jpg';
 import moment from 'moment';
+import { ApiParams, ApiResponse } from '../types';
 const NEWS_API_KEY = import.meta.env.VITE_APP_NEWSAPI_KEY;
 const GUARDIAN_API_KEY = import.meta.env.VITE_APP_GUARDIAN_KEY;
 const NYT_API_KEY = import.meta.env.VITE_APP_NYT_KEY;
@@ -15,6 +16,7 @@ const makeApiRequest = async (
     const response = await axios.get(url, { params });
     return response.data;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error('API request failed:', error);
     return null;
   }
@@ -79,10 +81,10 @@ export const fetchNewsAPIArticles = async (search, filters) => {
 
   if (newsSearchApi === newsApiSearchByQuery) {
     const data = await makeApiRequest(newsSearchApi, params);
-    return data ? normalizeArticles(data.articles, 'NewsAPI') : [];
+    return data ? normalizeArticles(data.articles) : [];
   } else {
     const data = await makeApiRequest(newsSearchApi, initialParams);
-    return data ? normalizeArticles(data.articles, 'NewsAPI') : [];
+    return data ? normalizeArticles(data.articles) : [];
   }
 };
 
@@ -106,7 +108,7 @@ export const fetchGuardianArticles = async (search, filters) => {
   };
 
   const data = await makeApiRequest(guardianNewsApi, params);
-  return data ? normalizeArticles(data.response.results, 'The Guardian') : [];
+  return data ? normalizeArticles(data.response.results) : [];
 };
 
 // Fetch NewYork News articles
@@ -128,7 +130,5 @@ export const fetchNYTimesArticles = async (search, filters) => {
   };
 
   const data = await makeApiRequest(newYorkTimesApi, params);
-  return data
-    ? normalizeArticles(data.response.docs, 'The New York Times')
-    : [];
+  return data ? normalizeArticles(data.response.docs) : [];
 };

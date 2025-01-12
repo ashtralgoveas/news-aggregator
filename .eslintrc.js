@@ -24,6 +24,8 @@ module.exports = {
     'prettier/prettier': 'warn',
     'no-console': 'off',
     'unused-imports/no-unused-imports': 'warn',
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
   },
   settings: {
     react: {

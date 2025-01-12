@@ -1,4 +1,3 @@
-import React from 'react';
 import { Badge, Button } from 'react-bootstrap';
 import '../CustomizedBadge/CustomizedBadge.css';
 

@@ -1,16 +1,16 @@
 import { Modal } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import '../PopModal/PopModal.css';
-import { ReactNode } from 'react';
+import { MouseEventHandler, ReactNode } from 'react';
 
 interface PopModalI {
   showModal: boolean;
   setShowModal: (data: boolean) => void;
   modalTitle: string;
   children: ReactNode;
-  handleSubmit: () => void;
-  handleCancel: () => void;
-  isApplyButtonDisabled: boolean;
+  handleSubmit: MouseEventHandler<HTMLButtonElement>;
+  handleCancel: MouseEventHandler<HTMLButtonElement>;
+  isApplyButtonDisabled?: boolean;
 }
 
 const PopModal = ({

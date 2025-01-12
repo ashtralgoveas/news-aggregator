@@ -7,24 +7,37 @@ import { NoDataFound } from '../NoDataFound/NoDataFound';
 import { Loading } from '../Loading/Loading';
 import { NewsCard } from '../NewsCard/NewsCard';
 import { FaCalendarAlt, FaFilter, FaSearch } from 'react-icons/fa';
-import { useEffect, useState } from 'react';
+import {
+  Dispatch,
+  MouseEventHandler,
+  SetStateAction,
+  useEffect,
+  useState,
+} from 'react';
 import { fetchArticles, setQuery } from '../../store/slices/articlesSlice';
 import { useDebounce } from '../../hooks/useDebounce';
 import SearchInput from '../SearchInput/SearchInput';
 
 interface NewsHeadlinesI {
   personalized?: string[];
-  buttonClick: object;
-  setButtonClick: (data: object) => void;
-  handleOpenDateFilterModal: () => void;
-  handleOpenMultiFilterModal: () => void;
-  searchInputValue: string;
-  setSearchInputValue: () => void;
+  buttonClick?: object | any;
+  setButtonClick?:
+    | React.Dispatch<
+        React.SetStateAction<{
+          search: boolean;
+          dateFilter: boolean;
+          multipleFilter: boolean;
+        }>
+      >
+    | any;
+  handleOpenDateFilterModal?: MouseEventHandler<HTMLButtonElement>;
+  handleOpenMultiFilterModal?: MouseEventHandler<HTMLButtonElement>;
+  searchInputValue?: string;
+  setSearchInputValue?: Dispatch<SetStateAction<string>>;
 }
 
 export const News = ({
   personalized,
-
   buttonClick,
   setButtonClick,
   handleOpenDateFilterModal,
@@ -39,8 +52,8 @@ export const News = ({
   const personalizedClass = personalized ? 'personalized' : '';
   const debouncedSearchTerm = useDebounce(searchInputValue, 800);
 
-  let { articles } = useSelector((state) => state.articles);
-  const { status, filters } = useSelector((state) => state.articles);
+  let { articles } = useSelector((state: any) => state.articles);
+  const { status, filters } = useSelector((state: any) => state.articles);
   articles = personalized ? personalized : articles;
 
   const heading = personalized
@@ -49,7 +62,10 @@ export const News = ({
       ? filters.query
       : filters.category;
 
-  const isSearchButtonDisabled = searchInputValue?.trim() === '';
+  const isSearchButtonDisabled =
+    !searchInputValue ||
+    typeof searchInputValue !== 'string' ||
+    searchInputValue.trim() === '';
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -71,8 +87,6 @@ export const News = ({
       })
     );
   }, [debouncedSearchTerm, dispatch, selected.key]);
-
-  console.log('first');
 
   return (
     <>
@@ -138,11 +152,9 @@ export const News = ({
                     <Col sm={12} md={6} lg={4} xl={3} style={card} key={index}>
                       <NewsCard
                         title={element.title}
-                        description={element.description}
                         published={element.publishedAt}
                         channel={element.source}
                         alt="News image"
-                        publishedAt={element.publishedAt}
                         imageUrl={element.imgSrc}
                         urlNews={element.url}
                         author={element.author}

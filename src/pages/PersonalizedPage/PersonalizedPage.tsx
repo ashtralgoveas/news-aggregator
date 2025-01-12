@@ -13,14 +13,14 @@ import { Loading } from '../../components/Loading/Loading';
 export const PersonalizedPage = () => {
   const [show, setShow] = useState(false);
 
-  const { articles } = useSelector((state) => state.articles);
+  const { articles } = useSelector((state: any) => state.articles);
   const [savedSources, setSavedSources] = useState([]);
   const [savedAuthors, setSavedAuthors] = useState([]);
   const [savedCategories, setSavedCategories] = useState([]);
 
-  const [tempSources, setTempSources] = useState([]);
-  const [tempAuthors, setTempAuthors] = useState([]);
-  const [tempCategories, setTempCategories] = useState([]);
+  const [tempSources, setTempSources] = useState<any>([]);
+  const [tempAuthors, setTempAuthors] = useState<any>([]);
+  const [tempCategories, setTempCategories] = useState<any>([]);
   const [personalizedNews, setPersonalizedNews] = useState([]);
 
   const [isLoading, setIsLoading] = useState(true);
@@ -83,11 +83,15 @@ export const PersonalizedPage = () => {
 
   useEffect(() => {
     // Retrieve preferences from localStorage
+
     const savedSources =
+      // @ts-expect-error: localstorage usage
       JSON.parse(localStorage.getItem('preferredSources')) || [];
     const savedAuthors =
+      // @ts-expect-error: localstorage usage
       JSON.parse(localStorage.getItem('preferredAuthors')) || [];
     const savedCategories =
+      // @ts-expect-error: localstorage usage
       JSON.parse(localStorage.getItem('preferredCategories')) || [];
 
     setSavedSources(savedSources);
@@ -102,7 +106,7 @@ export const PersonalizedPage = () => {
       savedSources.length === uniqueSources.length
         ? articles
         : articles.filter(
-            (article) =>
+            (article: { source: any; author: any; category: any }) =>
               savedSources.includes(article.source) ||
               savedAuthors.includes(article.author) ||
               savedCategories.includes(article.category)

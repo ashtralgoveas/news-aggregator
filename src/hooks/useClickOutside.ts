@@ -7,6 +7,7 @@ export const useClickOutside = () => {
 
   // Close when clicking outside
   const handleClickOutside = (event) => {
+    // @ts-expect-error: element ref
     if (elementRef.current && !elementRef.current.contains(event.target)) {
       setIsCollapsed(false);
     }

@@ -1,5 +1,4 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
-
 import App from '../App';
 import { NotRouteFound } from '../components/NotRouteFound/NotRouteFound';
 import { HomePage } from '../pages/HomePage/HomePage';
