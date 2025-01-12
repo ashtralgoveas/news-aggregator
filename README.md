@@ -4,8 +4,9 @@
 
 - The project integrates APIs from NewsAPI.org, The Guardian, and The New York Times.
 - It enables users to search and filter news articles according to various criteria, including keywords, date, category, and source.
-- Users can personalize their news feed by selecting preferred sources, categories, and authors.
+- Users can personalize their news feed by selecting preferred sources, categories, and authors in the personal feed tab.
 - The design is fully mobile-responsive, ensuring a seamless experience across different screen sizes.
+- Clicking on the individual news card redirects you to the respective news content.
 
 ## Installation
 
