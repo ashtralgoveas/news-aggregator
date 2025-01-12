@@ -17,3 +17,9 @@ export const Container = styled.div`
   margin-right: auto;
   margin-left: auto;
 `;
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const card = {
+  marginTop: '10px',
+  marginBottom: '50px',
+};

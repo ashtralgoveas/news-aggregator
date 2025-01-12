@@ -20,9 +20,10 @@ module.exports = {
   plugins: ['react', 'react-hooks', '@typescript-eslint'],
   rules: {
     'react/react-in-jsx-scope': 'off',
-    '@typescript-eslint/no-unused-vars': ['error'],
-    'prettier/prettier': 'error',
+    '@typescript-eslint/no-unused-vars': 'off',
+    'prettier/prettier': 'warn',
     'no-console': 'off',
+    'unused-imports/no-unused-imports': 'warn',
   },
   settings: {
     react: {

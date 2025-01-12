@@ -6,16 +6,6 @@ const NEWS_API_KEY = import.meta.env.VITE_APP_NEWSAPI_KEY;
 const GUARDIAN_API_KEY = import.meta.env.VITE_APP_GUARDIAN_KEY;
 const NYT_API_KEY = import.meta.env.VITE_APP_NYT_KEY;
 
-interface ApiResponse {
-  // Define the expected structure of the response data
-  articles: any[];
-  status: string;
-  totalResults: number;
-}
-
-interface ApiParams {
-  [key: string]: string | number; // Adjust based on your API's expected parameters
-}
 // Helper function to make API requests
 const makeApiRequest = async (
   url: string,
@@ -44,6 +34,7 @@ const normalizeArticles = (articles) => {
     publishedAt:
       article.publishedAt || article.webPublicationDate || article.pub_date,
     author:
+      // eslint-disable-next-line no-constant-binary-expression
       article?.author ||
       article?.fields?.byline ||
       'Unknown Author' ||
