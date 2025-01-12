@@ -2,6 +2,11 @@
 
 ## A React-based news aggregator app built with Vite. This app aggregates and displays news from various sources.
 
+- The project integrates APIs from NewsAPI.org, The Guardian, and The New York Times.
+- It enables users to search and filter news articles according to various criteria, including keywords, date, category, and source.
+- Users can personalize their news feed by selecting preferred sources, categories, and authors.
+- The design is fully mobile-responsive, ensuring a seamless experience across different screen sizes.
+
 ## Installation
 
 To get started with the project locally, follow these steps:
