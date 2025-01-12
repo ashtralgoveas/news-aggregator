@@ -62,4 +62,4 @@ http://localhost:3000
 
 ## Website Hosting
 
-[news-aggregator-omega-weld.vercel.app](https://news-aggregator-omega-weld.vercel.app/home)
+The website is hosted at [news-aggregator-omega-weld.vercel.app](https://news-aggregator-omega-weld.vercel.app/home) using vercel.
